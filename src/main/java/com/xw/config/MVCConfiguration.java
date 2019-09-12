@@ -8,6 +8,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 @Configuration
 public class MVCConfiguration extends WebMvcConfigurerAdapter {
+
+      /** 设置系统欢迎页面 **/
 //    @Override
 //    public void addViewControllers( ViewControllerRegistry registry ) {
 //        registry.addViewController("/").setViewName("forward:/login.html");
