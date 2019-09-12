@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xw.shiro_test.mapper.UserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xw.shiro_test.model.User">
+        <id column="uid" property="uId" />
+        <result column="username" property="username" />
+<!--        <result column="age" property="age" />-->
+<!--        <result column="email" property="email" />-->
+        <result column="password" property="password" />
+        <collection property="roles" ofType="com.xw.shiro_test.model.Role">
+            <id column="rid" jdbcType="INTEGER" property="roleId"/>
+            <result column="rname" jdbcType="VARCHAR" property="roleName" />
+            <collection property="permissions" ofType="com.xw.shiro_test.model.Permission">
+                <id column="pid" jdbcType="INTEGER" property="pId"/>
+                <result column="pName" jdbcType="VARCHAR" property="pName" />
+                <result column="url" jdbcType="VARCHAR" property="url" />
+            </collection>
+        </collection>
+    </resultMap>
+
+<!--    &lt;!&ndash; 通用查询结果列 &ndash;&gt;-->
+<!--    <sql id="Base_Column_List">-->
+<!--        id, name, age, email, password-->
+<!--    </sql>-->
+
+<!--    <select id="getAllUser" resultType="com.xw.user.pojo.User">-->
+<!--        SELECT * FROM user-->
+<!--    </select>-->
+
+    <select id="getUserByUserName" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select t_user.*,t_role.*,t_permission.*
+        from t_user
+        inner join t_role_user on t_user.uid = t_role_user.uid
+        inner join t_role on t_role.rid=t_role_user.rid
+        inner join t_permission_role on t_permission_role.rid=t_role.rid
+        inner join t_permission on t_permission.pid=t_permission_role.pid
+        where username=#{username}
+    </select>
+</mapper>
