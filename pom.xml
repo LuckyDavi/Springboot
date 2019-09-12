@@ -28,6 +28,14 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!--    springAOP    -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.8.9</version>
+        </dependency>
+
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
