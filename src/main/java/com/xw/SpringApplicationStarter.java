@@ -21,7 +21,7 @@ public class SpringApplicationStarter {
                 "          NN    NN    NN            II             CC                          EEEEEEEEEEEEEE              \n"+
                 "         NN     NN   NN            II             CC                          EE                           \n"+
                 "        NN      NN  NN            II              CC          CC             EE                            \n"+
-                "       NN       NN NN            II               CC       CCC             EE                             \n"+
+                "       NN       NN NN            II               CC       CCC              EE                             \n"+
                 "      NN        NNN             II                  CC CC CC               EEEEEEEEEEEEEEE                 \n");
     }
 
