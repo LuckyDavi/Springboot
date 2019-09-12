@@ -13,6 +13,9 @@ import javax.servlet.Filter;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * shiro的配置类
+ */
 @Configuration
 public class ShiroConfiguration {
 
@@ -73,6 +76,8 @@ public class ShiroConfiguration {
         advisor.setSecurityManager(securityManager);
         return advisor;
     }
+
+    /** 开启spring注解支持@RequireRoles、@RequirePermissions **/
     @Bean
     public DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator(){
         DefaultAdvisorAutoProxyCreator creator = new DefaultAdvisorAutoProxyCreator();

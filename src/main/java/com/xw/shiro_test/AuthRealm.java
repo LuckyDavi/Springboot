@@ -17,6 +17,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
+
+/**
+ * shiro的登录认证和授权类，自定义Realm
+ */
 public class AuthRealm extends AuthorizingRealm {
 
     @Autowired
@@ -54,7 +58,6 @@ public class AuthRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         UsernamePasswordToken  usernamePasswordToken = (UsernamePasswordToken) token;
         String username = usernamePasswordToken.getUsername();
-//        System.out.println("username:"+username);
         User user = userService.getUserByUserName(username);
         if(user==null){
             //此处可能为空，需要处理空指针异常
